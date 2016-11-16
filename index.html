@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="./src/bootstrap-3.3.7-dist/bootstrap-3.3.7-dist/css/bootstrap.css">
+        <link rel="stylesheet" href="./src/bootstrap-3.3.7-dist/bootstrap-3.3.7-dist/css/bootstrap-theme.css">
+        
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <h1>Cuenta GuildWars</h1>
+            </div>
+        </header>
+        <main>
+            <div class="container">
+                <div class="jumbotron" id="busqueda">
+                    <form action="" class="form" method="">
+                        <label for="key">
+                            AccessToken:
+                            <input type="text" class="form-control" id="key" name="key" placeholder="Nombre...">
+                        </label>
+                        <input type="button" id="buscar" class="form-control btn btn-success" value="Buscar" >
+                    </form>
+                </div>
+            </div>
+            
+            <div class="container">
+                <h2>Respuesta:</h2>
+                <button class="btn btn-success" id="volver" hidden>Buscar</button>
+                <div class="jumbotron">
+                    <p id="debug"></p>
+                    <p id="respuesta"></p>
+                    <h3>Cuenta:</h3>
+                    <ul id="listaDatos">
+                        
+                        
+                    </ul>
+                    <h3>Personajes:</h3>
+                    <ul id="personajes">
+
+                    </ul>
+                    <h3>Personaje Selectionado</h3>
+                    <ul id="personaje">
+
+                    </ul>
+                </div>
+            </div>
+        </main>
+
+
+        <!--  Scripts  -->
+        <script src="./src/jQuery/jquery-3.1.1.js"></script>
+        <script src="./src/bootstrap-3.3.7-dist/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+        <script src="./src/propio/prueba.js">
+            
+        
+        </script>
+       
+    
+    </body>
+</html>
