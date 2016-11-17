@@ -26,7 +26,11 @@ function obtenerCuenta (){
             var urlApi = "https://api.guildwars2.com/v2/account?lang=es&access_token="+key;
             $("#debug").html("p").text(urlApi);
             $.getJSON(urlApi, function(data) {
-                var item = "";
+                var item = "Este token pertenece a " + data.name + " y tiene acceso a " + data.access;
+                $("<p/>", {
+                    id: data.name,
+                    html : item
+                }).appendTo("#listaDatos");
                 $.each(data, function (key , val){
                     var datos = key + ": " + val ;
                     $("<li/>", { 
