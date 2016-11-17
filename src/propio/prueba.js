@@ -73,8 +73,9 @@ function obtenerCuenta (){
             var urlApi = "https://api.guildwars2.com/v2/characters/"+ name +"?lang=es&access_token="+key;
             
             $.getJSON(urlApi, function(data) {
+                
                 var item = "";
-                var personaje = Personaje.nuevoPersonaje(data.name,data.race,data.profession,data.level);
+                var personaje = new Personaje(data.name,data.race,data.profession,data.level);
 
 
                 $.each(personaje, function (key , val){
