@@ -18,6 +18,22 @@ function mostrarJSON(json){
     elementoUl.appendTo("#respuesta");
 }
 
+function botonPJ(json){
+    var elemento = $("<div/>",{
+        "class" : "pjs"
+    });
+    var keyapi = $("#key").val();
+    $.each(json, function (key, val){
+
+        $("<button/>", {
+            "id" : val,
+            "onclick" : "getCharacter("+keyapi+","+val+")",
+            html : val
+        }).appendTo(elemento);
+    })
+    elemento.appendTo("#respuesta");
+}
+
 /** Devuelve un JSON con la información de la cuenta.
  * Se le pasa la api-key de la cuenta.
  *{
@@ -44,30 +60,18 @@ function mostrarJSON(json){
  **/
 function getAccount(key){
     var urlApi = "https://api.guildwars2.com/v2/account?lang=es&access_token="+key;
-    var info = $.getJSON(urlApi,function(data){
-        var ele = mostrarJSON(data);
-        return ele;
-     });
-
-     return info;
-    
+    $.getJSON(urlApi,mostrarJSON);
 }
 
 function getCharacters(key){
     var urlApi = "https://api.guildwars2.com/v2/characters?lang=es&access_token="+key;
     var info;
-    $.getJSON(urlApi,function(data){
-        info = data;
-    });
-    return info;
+    $.getJSON(urlApi,botonPJ)
 }
 
 function getCharacter(key,keyp){
     var name = encodeURI(keyp);
     var urlApi = "https://api.guildwars2.com/v2/characters/"+ name +"?lang=es&access_token="+key;
     var info;
-    $.getJSON(urlApi,function(data){
-        info = data;
-    });
-    return info;
+    $.getJSON(urlApi,mostrarJSON);
 }

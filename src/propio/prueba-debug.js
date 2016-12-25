@@ -13,6 +13,7 @@ $("#mostrar").click(function(){
     var key = $("#key").val();
 
     getAccount(key);
+    getCharacters(key);
 
     
 });
