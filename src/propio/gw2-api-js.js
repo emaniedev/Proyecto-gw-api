@@ -75,3 +75,7 @@ function getCharacter(key,keyp){
     var info;
     $.getJSON(urlApi,mostrarJSON);
 }
+
+
+
+}

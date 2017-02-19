@@ -53,7 +53,7 @@ function obtenerCuenta (){
                 var item = "";
                
                 $.each(data, function (key , val){
-                    var datos = (key + 1) + ": " + val ;
+                    
                      var click = "seleccionarPersonaje('"+val+"')";
                     
                     $("<button/>", { 

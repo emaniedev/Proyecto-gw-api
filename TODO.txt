@@ -1,0 +1,10 @@
+Creadas las llamadas para:
+    cuenta
+    personajes
+    personaje concreto
+    equipamiento
+    
+Creando archivo main.js
+    usar prueba.js como referencia
+    creo metodos de visualizacion
+    
