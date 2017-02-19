@@ -45,6 +45,7 @@ function mostrarEquipamiento(datos){
                         "posicion: "+valor.slot +"\n";
             elementos += "<div class="+clase+ " id="+valor.id+">"+seleccionarItem(valor.id)+"</div>";
             
+            
         })
         
     });
@@ -55,15 +56,37 @@ function mostrarEquipamiento(datos){
 
 function mostrarItem(datos){
     var elementos = "";
-    var texto =
+    var texto1 =
+
     "<img src=\""+datos.icon+"\"/>"+
+    "<div>" +
     "<ul>" +
     "<li>Nonmbre: " + datos.name + "</li>"+
     "<li>Tipo: " + datos.type + "</li>" +
     "<li>Rareza: " + datos.rarity + "</li>";
-    if (datos.description != null){
-        texto += "<li>Detalles: " + datos.description + "</li>";
+    var rareza = datos.rarity;
+    if (datos.description == null || datos.description == ""){
+        texto1 += "</ul></div>";
+        
+    } else {
+        texto1+= "<li>Detalles: " + datos.description + "</li>";
+        texto1 += "</ul></div>";
     }
-    texto += "</ul>";
-    $("#"+datos.id).html(texto);
+    var texto2 =
+    "<div class='inactivo'>" +
+    "<ul><h3>Stats</h3>";
+    $.each(datos.details.infix_upgrade.attributes, function (key,val){
+        texto2 += 
+        "<li>"+val.attribute+": "+val.modifier+"</li>";
+    })
+    texto2 +=
+    "</ul></div>";
+
+    var texto = texto1 + texto2;
+    
+    $("#"+datos.id).html(texto).addClass(rareza.toLowerCase()).on("mouseover",function(e){
+        
+        $(e.target).find("div").toggleClass("inactivo");
+    });
 }
+

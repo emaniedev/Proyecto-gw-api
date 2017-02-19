@@ -2,6 +2,8 @@
 //DECLARACION
 //Conseguimos la Key
 var key = $("#key").val();
+$("#volver").hide();
+$("#respuesta").hide();
 
 //MAIN
 
@@ -14,10 +16,20 @@ iniciar();
 
 //Añadimos evento al boton de buscar
 function iniciar(){
+    
     $("#buscar").on("click",function(){
+        key = $("#key").val();
         getAccount(key,mostrarCuenta);
         getCharacters(key, mostrarPersonajes);
+        $("#busqueda").hide();
+        $("#volver").show();
+        $("#respuesta").show();
     });
+    $("#volver").on("click", function(){
+        $("#busqueda").show();
+        $("#volver").hide();
+        $("#respuesta").hide();
+    })
 }
 
 //Definimos funcion seleccionarPersonaje de la vista
